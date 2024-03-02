@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AccountController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->middleware("auth");
+
+
+
+
+//    //Account//    //
+
+Route::match(["get", "post"], "/login", [AccountController::class, "login"])->name("login");
+Route::match(["get", "post"], "/register", [AccountController::class, "register"])->name("register");
+
+Route::prefix("account",)->group(function() {
+    Route::get("/logout", [AccountController::class, "logout"]);
+})->middleware("auth");
+
