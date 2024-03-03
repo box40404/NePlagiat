@@ -7,5 +7,7 @@
 </head>
 <body>
     <h1>index</h1>
+    <a href="/account/logout"> logout </a>
+    <a href="/profile/"> profile </a>
 </body>
 </html>
