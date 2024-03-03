@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GroupsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +29,19 @@ Route::get('/', function () {
 Route::match(["get", "post"], "/login", [AccountController::class, "login"])->name("login");
 Route::match(["get", "post"], "/register", [AccountController::class, "register"])->name("register");
 
-Route::prefix("account",)->group(function() {
+Route::prefix("account")->group(function() {
     Route::get("/logout", [AccountController::class, "logout"]);
 })->middleware("auth");
 
+
+//  //Profile// //
+
+Route::prefix("profile")->group(function(){
+    Route::get("/", [ProfileController::class, "show"]);
+})->middleware("auth");
+
+
+//  //Groups//  //
+
+Route::get("/groups", [GroupsController::class, "show"])->middleware("auth");
+Route::get("/groups/{id}", [GroupsController::class, "showDetails"])->middleware("auth");
