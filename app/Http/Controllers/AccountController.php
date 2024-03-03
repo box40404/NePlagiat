@@ -59,9 +59,9 @@ class AccountController extends Controller
         $user = new User;
 
         
-        $user->name = $request->input("name");
-        $user->email = $request->input("email");
-        $user->password = $request->input("password");
+        $user->name = $credentials["name"];
+        $user->email = $credentials["email"];
+        $user->password = $credentials["password"];
 
         $user->save();
 
@@ -70,4 +70,5 @@ class AccountController extends Controller
         return redirect("/");
 
     }
+
 }
