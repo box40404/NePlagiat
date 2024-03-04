@@ -11,6 +11,10 @@
         @csrf
         <input type="text" name="email" placeholder="email" value = "{{ old('email') }}">
         <input type="text" name="password" placeholder="password">
+        <label for="remember" >
+            Запомнить меня
+            <input type="checkbox" name="remember">
+        </label>
         <input type="submit" value="log in">
     </form>
 
