@@ -20,8 +20,10 @@ class AccountController extends Controller
             "password" => ["required"]
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate(); //напрямую пароль не хэширован нужно регаться через сайт
+        $remember = $request->input("remember");
+
+        if (Auth::attempt($credentials, $remember)) {
+            $request->session()->regenerate();
 
             return redirect()->intended();
         } else {
