@@ -36,9 +36,11 @@ Route::prefix("account")->group(function() {
 
 //  //Profile// //
 
-Route::prefix("profile")->group(function(){
-    Route::get("/", [ProfileController::class, "show"]);
-})->middleware("auth");
+Route::middleware("auth")->group(function() {
+    Route::prefix("profile")->group(function(){
+        Route::get("/", [ProfileController::class, "show"]);
+    });
+});
 
 
 //  //Groups//  //
