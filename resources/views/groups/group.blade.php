@@ -13,8 +13,14 @@
             <ul>
                 <li> {{ $post->text }} </li>
                 <li> {{ $post->likes }} лайков </li>
-                <li> {{ $post->comments }} commentov </li>
-                <li> {{ $post->reposts }} repostov </li>
+                <li> {{ $post->comments_amount }} commentov </li>
+                <li> {{ $post->reposts }} repostov </li>           
+            <p> Комменты </p>
+            @foreach($post->comments as $comment)
+                <ul>
+                    <li> {{ $comment->text }} </li>
+                </ul>
+            @endforeach
             </ul>
         @endforeach
 
