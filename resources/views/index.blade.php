@@ -7,7 +7,9 @@
 </head>
 <body>
     <h1>index</h1>
-    <a href="/account/logout"> logout </a>
-    <a href="/profile/"> profile </a>
+    <p> <a href="{{ Route('logout') }}"> logout </a> </p>
+    <p> <a href="{{ Route('profile') }}"> profile </a> </p>
+    <p> <a href="{{ Route('groups') }}"> groups </a> </p>
+    
 </body>
 </html>
