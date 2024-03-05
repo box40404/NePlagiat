@@ -26,24 +26,25 @@ Route::get('/', function () {
 
 //    //Account//    //
 
-Route::match(["get", "post"], "/login", [AccountController::class, "login"])->name("login");
-Route::match(["get", "post"], "/register", [AccountController::class, "register"])->name("register");
-
-Route::prefix("account")->group(function() {
-    Route::get("/logout", [AccountController::class, "logout"]);
-})->middleware("auth");
+Route::middleware("auth")->group(function() {
+    Route::prefix("account")->group(function(){
+        Route::get("/logout", [AccountController::class, "logout"])->name("logout");
+        Route::match(["get", "post"], "/login", [AccountController::class, "login"])->name("login")->withoutMiddleware("auth");
+        Route::match(["get", "post"], "/register", [AccountController::class, "register"])->name("register")->withoutMiddleware("auth");
+    });
+});
 
 
 //  //Profile// //
 
 Route::middleware("auth")->group(function() {
     Route::prefix("profile")->group(function(){
-        Route::get("/", [ProfileController::class, "show"]);
+        Route::get("/", [ProfileController::class, "show"])->name("profile");
     });
 });
 
 
 //  //Groups//  //
 
-Route::get("/groups", [GroupsController::class, "show"])->middleware("auth");
+Route::get("/groups", [GroupsController::class, "show"])->middleware("auth")->name("groups");
 Route::get("/groups/{id}", [GroupsController::class, "showDetails"])->middleware("auth");
