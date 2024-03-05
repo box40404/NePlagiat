@@ -18,6 +18,6 @@
         <input type="submit" value="log in">
     </form>
 
-    <a href="/register">register</a>
+    <a href="{{ Route('register') }}">register</a>
 </x-account-layout>
 
