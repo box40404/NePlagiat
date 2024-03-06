@@ -22,6 +22,7 @@
                 </ul>
             @endforeach
             </ul>
+            <hr>
         @endforeach
 
 </x-base>
