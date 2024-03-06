@@ -10,4 +10,8 @@
             <li> <a href="/groups/{{$group->id}}"> {{ $group->name }} </a> </li>
         @endforeach
     </ul>
+
+    
+    <h3> <a href="{{ Route('create_group') }}"> Создать группу </a> </h3>
+
 </x-base>
