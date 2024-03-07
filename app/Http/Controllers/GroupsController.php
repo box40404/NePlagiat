@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Group;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Post;
+
 
 class GroupsController extends Controller
 {
@@ -44,5 +46,28 @@ class GroupsController extends Controller
         $group->save();
 
         return redirect()->route('group_page', ['id' => $group->id]);
+    }
+
+    public function createPostForm($id)
+    {
+        return view('groups.create-post-form', ['group_id' => $id]);
+    }
+
+    public function createPostHandler(Request $request, $id): RedirectResponse
+    {
+        $formData = $request->validate([
+            'text' => 'required'
+        ]);
+
+        $post = new Post;
+
+        $post->text = $formData['text'];
+        isset($formData['img']) ? $post->img = $formData['img'] : null;
+        $post->group_id = $id;
+        $post->user_id = Auth::id();
+
+        $post->save();
+
+        return redirect()->route('group_page', ['id' => $id]);
     }
 }

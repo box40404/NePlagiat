@@ -25,4 +25,6 @@
             <hr>
         @endforeach
 
+        <a href="{{ Route('create_post', ['id' => $group->id]) }}" > <h3> Создать пост </h3> </a>
+
 </x-base>

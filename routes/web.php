@@ -50,6 +50,8 @@ Route::middleware('auth')->group(function() {
     Route::prefix('groups')->group(function() {
         Route::post('/create/handler', [GroupsController::class, 'createHandler'])->name('create_group_handler');
         Route::get('/create', [GroupsController::class, 'createForm'])->name('create_group');
+        Route::post('/{id}/create-post/handler', [GroupsController::class, 'createPostHandler'])->name('create_post_handler');
+        Route::get('/{id}/create-post', [GroupsController::class, 'createPostForm'])->name('create_post');
         Route::get("/{id}", [GroupsController::class, "showGroup"])->name('group_page');
         Route::get("/", [GroupsController::class, "show"])->name("groups");
     });
