@@ -24,8 +24,9 @@ class GroupsController extends Controller
     public function showGroup($id)
     {
         $group = Group::find($id);
+        $posts = $group->posts()->latest()->get();
 
-        return view("groups.group", ["group"=>$group]);
+        return view("groups.group", ["group"=>$group, 'posts' => $posts]);
     }
 
     public function createForm() 
@@ -63,7 +64,7 @@ class GroupsController extends Controller
         $post = new Post;
 
         $post->text = $formData['text'];
-        isset($formData['img']) ? $post->img = $formData['img'] : null;
+        //isset($formData['img']) ? $post->img = $formData['img'] : null;
         $post->group_id = $id;
         $post->user_id = Auth::id();
 
