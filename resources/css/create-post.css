@@ -42,3 +42,29 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #3b5998;
 }
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px; /* Добавлено для разделения на разные строки */
+    font-size: 23px;
+    max-height: 500px; /* Установите максимальную высоту блока */
+    overflow-y: auto; 
+}
+
+.file-upload label {
+    cursor: pointer;
+}
+
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+
+.selected-photo {
+    width: 100px; /* Задайте нужную ширину для изображений */
+    height: auto; /* Автоматическая высота */
+    margin-right: 10px; /* Отступ между изображениями */
+}
