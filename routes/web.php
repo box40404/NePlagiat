@@ -63,3 +63,4 @@ Route::middleware('auth')->group(function() {
         Route::post('/comments/create', [CommentsController::class, 'createComment'])->name('create_comment');
     });
 });
+
