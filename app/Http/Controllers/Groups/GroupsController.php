@@ -7,10 +7,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Group;
 use App\Models\Post;
-
+use App\Models\PostImage;
 
 class GroupsController extends Controller
 {
@@ -58,17 +59,30 @@ class GroupsController extends Controller
     public function createPostHandler(Request $request, $id): RedirectResponse
     {
         $formData = $request->validate([
-            'text' => 'required'
+            'text' => 'required',
+            'img' => 'array',
+            'img.*' => 'image'
         ]);
 
         $post = new Post;
 
         $post->text = $formData['text'];
-        //isset($formData['img']) ? $post->img = $formData['img'] : null;
         $post->group_id = $id;
         $post->user_id = Auth::id();
 
         $post->save();
+
+        if(isset($formData['img'])) {
+            foreach($request->file('img') as $image){
+                $postImage = new PostImage;
+
+                $postImage->urn = Storage::url($image->store('public/posts/img'));
+                $postImage->post_id = $post->id;
+
+                $postImage->save();
+            }
+        }
+
 
         return redirect()->route('group_page', ['id' => $id]);
     }
