@@ -3,6 +3,10 @@
         ГРуппы
     </x-slot:title>
 
+    <x-slot:style>
+        @vite('resources/css/app.css')
+    </x-slot:style>
+
     <h1>Группы</h1>
 
     <ul>

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
 {
-    public function createComment(Request $request, $group_id, $post_id): RedirectResponse
+    public function createComment(Request $request, $group_id, $post_id)//: RedirectResponse
     {
         $formData = $request->validate([
             'text' => 'max:255|required'
@@ -24,6 +24,7 @@ class CommentsController extends Controller
 
         $comment->save();
 
-        return redirect()->route('group_page', ['id' => $group_id]);
+        //return redirect()->route('group_page', ['id' => $group_id]);
+        //return response()->json(['message' => 'Комментарий успешно добавлен', 'comment' => $comment], 200);
     }
 }
