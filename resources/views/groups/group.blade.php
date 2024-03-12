@@ -64,12 +64,13 @@
                         Comments
                         <button class="hide-comments-btn hidden">-</button>
                     </h3>
+
+                    <ul id="comment-list" data-len-comments="{{$lenComments}}" class="comment-list">
                     @if($lenComments > 0)
-                    <ul class="comment-list">
                         <!-- Первый комментарий виден всегда -->
                         <li>
                             <img src="commenter-avatar.jpg" alt="Commenter Avatar">
-                            <p class="comment-text">{{$post->comments[0]->text}}</p>
+                            <p id="comment-text" class="comment-text">{{$post->comments[0]->text}}</p>
                         </li>
                         <!-- Остальные комментарии скрыты -->
                         <div class="hidden-comments" style="display: none;">
@@ -83,16 +84,17 @@
                         
                         @if($lenComments > 1)
                             <!-- Кнопка для отображения скрытых комментариев -->
-                            <button class="show-comments-btn" data-len-comments="{{$lenComments - 1}}">Показать еще ({{$lenComments - 1}})</button>
+                            <button class="show-comments-btn" data-len-comments="{{$lenComments - 1}}">Показать еще {{$lenComments - 1}}</button>
                         @endif
-                    </ul>
                     @endif
+                    </ul>
+
                     <!-- Поле для добавления нового комментария -->
                     <div class="add-comment">
                         <form id="comment-form" action="{{ Route('create_comment', ['group_id' => $group->id, 'post_id' => $post->id]) }}" method="post">
                             @csrf
                             <div class="comment-input">
-                                <input type="text" name="text" placeholder="Write a comment...">
+                                <input id="comment-input" type="text" name="text" placeholder="Write a comment...">
                                 <button type="submit"><i class="fas fa-paper-plane"></i></button>
                             </div>
                         </form>

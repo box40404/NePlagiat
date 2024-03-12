@@ -25,6 +25,6 @@ class CommentsController extends Controller
         $comment->save();
 
         //return redirect()->route('group_page', ['id' => $group_id]);
-        //return response()->json(['message' => 'Комментарий успешно добавлен', 'comment' => $comment], 200);
+        return response()->json(['message' => 'Комментарий успешно добавлен', 'comment' => $comment], 200);
     }
 }
