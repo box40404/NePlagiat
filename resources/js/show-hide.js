@@ -1,18 +1,6 @@
 import './bootstrap';
 
-document.addEventListener('DOMContentLoaded', function() {
-    const infoBtn = document.getElementById('info-btn');
-    const popup = document.getElementById('popup');
-    const closeBtn = document.getElementById('close');
 
-    infoBtn.addEventListener('click', function() {
-        popup.style.display = 'block';
-    });
-
-    closeBtn.addEventListener('click', function() {
-        popup.style.display = 'none';
-    });
-});
 
 document.addEventListener('DOMContentLoaded', function() {
         const showButtons = document.querySelectorAll('.show-comments-btn');
@@ -63,21 +51,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 button.textContent = `Показать еще ${lenImages}`;
             }
         });
-    });
-});
-
-const fileInput = document.getElementById('file-input');
-const selectedPhotosDiv = document.getElementById('selected-photos');
-
-fileInput.addEventListener('change', function() {
-    selectedPhotosDiv.innerHTML = ''; // Очищаем предыдущие выбранные фотографии
-
-    const files = Array.from(fileInput.files); // Получаем выбранные файлы
-    files.forEach(file => {
-        const image = document.createElement('img');
-        image.src = URL.createObjectURL(file); // Получаем URL для просмотра выбранной фотографии
-        image.alt = file.name; // Устанавливаем имя файла в качестве альтернативного текста
-        image.classList.add('selected-photo');
-        selectedPhotosDiv.appendChild(image); // Добавляем изображение в div
     });
 });

@@ -3,9 +3,10 @@
         {{ $group->name }}
     </x-slot:title>
 
-    <x-slot:style>
-        @vite('resources/css/app.css')
-    </x-slot:style>
+    <x-slot:styles>
+        @vite('resources/css/group.css')
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    </x-slot:styles>
 
     <section class="group-info">
         <div class="group-image">
@@ -120,6 +121,10 @@
         </div>
     </div>
     
+    <x-slot:scripts>
+        @vite('resources/js/pop-up.js')
+        @vite('resources/js/show-hide.js')
+        @vite('resources/js/add-comments.js')
+    </x-slot:scripts>
 
-    @vite('resources/js/add-comments.js')
 </x-base>

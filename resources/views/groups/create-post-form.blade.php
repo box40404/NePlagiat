@@ -3,9 +3,10 @@
         создать пост
     </x-slot:title>
 
-    <x-slot:style>
+    <x-slot:styles>
         @vite('resources/css/create-post.css')
-    </x-slot:style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    </x-slot:styles>
 
     <section class="add-post-container">
         <h2>Add a New Post</h2>
@@ -26,5 +27,9 @@
             <button type="submit">Submit</button>
         </form>
     </section>
+
+    <x-slot:scripts>
+        @vite('resources/js/media-preview.js')
+    </x-slot:scripts>
 
 </x-base>
