@@ -299,6 +299,7 @@ footer {
     height: auto;
     margin-right: 10px;
     margin-bottom: 10px;
+    border-style: ridge;
 }
 
 /* Стили для кнопки и дополнительных фотографий */
