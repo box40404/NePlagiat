@@ -3,9 +3,9 @@
         ГРуппы
     </x-slot:title>
 
-    <x-slot:style>
+    <x-slot:styles>
         @vite('resources/css/app.css')
-    </x-slot:style>
+    </x-slot:styles>
 
     <h1>Группы</h1>
 
@@ -17,5 +17,9 @@
 
     
     <h3> <a href="{{ Route('create_group') }}"> Создать группу </a> </h3>
+
+    <x-slot:scripts>
+        
+    </x-slot:scripts>
 
 </x-base>

@@ -3,23 +3,36 @@
         Создать группу
     </x-slot:title>
 
-    <form action="{{ Route('create_group_handler') }}" method="post">
-        @csrf
-        <label for="name">
-            Название
-            <p> <input type="text" name="name"> </p>
-        </label>
+    <x-slot:styles>
+        @vite('resources/css/create-group.css')
+    </x-slot:styles>
 
-        <label for="description">
-            Описание
-            <p> <input type="text" name="description"> </p>
-        </label>
+    <div class="container">
+        <h1>Create Group</h1>
+        <form action="{{ route('create_group_handler') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label for="group-name">Group Name:</label>
+                <input type="text" id="group-name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="group-description">Group Description:</label>
+                <textarea id="group-description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="group-tags">Group Tags:</label>
+                <input type="text" id="group-tags" name="tags" placeholder="Enter tags">
+            </div>
+            <div class="form-group">
+                <label for="group-photo">Group Photo:</label>
+                <input type="file" id="group-photo" name="img" accept="image/*" required>
+            </div>
+            <button type="submit">Create Group</button>
+        </form>
+    </div>
 
-        <label for="tags">
-            Тэги
-            <p> <input type="text" name="tags"> </p>
-        </label>
+    <x-slot:scripts>
 
-        <p> <input type="submit" value="Создать"> </p>
-    </form>
+    </x-slot:scripts>
+
 </x-base>

@@ -44,6 +44,7 @@ class GroupsController extends Controller
         $group->name = $formData['name'];
         $group->description = $formData['description'];
         $group->tags = $formData['tags'];
+        $group->img = Storage::url($request->file('img')->store("public/groups/avatars"));
         $group->user_id = Auth::id();
 
         $group->save();
@@ -76,7 +77,7 @@ class GroupsController extends Controller
             foreach($request->file('img') as $image){
                 $postImage = new PostImage;
 
-                $postImage->urn = Storage::url($image->store('public/posts/img'));
+                $postImage->urn = Storage::url($image->store("public/groups/$id/posts/img"));
                 $postImage->post_id = $post->id;
 
                 $postImage->save();

@@ -20,7 +20,7 @@ use App\Http\Controllers\Groups\GroupsController;
 
 Route::get('/', function () {
     return view('index');
-})->middleware("auth");
+})->name('home')->middleware("auth");
 
 
 

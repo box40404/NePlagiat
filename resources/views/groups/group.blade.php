@@ -10,7 +10,7 @@
 
     <section class="group-info">
         <div class="group-image">
-            <img src="group-image.jpg" alt="Group Image">
+            <img src="{{$group->img}}" alt="Group Image">
         </div>
         <div class="group-details">
             <h1> {{$group->name}} </h1>
@@ -36,7 +36,7 @@
 
             <div class="post">
                 <div class="post-header">
-                    <img src="user-avatar.jpg" alt="Group Avatar">
+                    <img src="{{$group->img}}" alt="Group Avatar">
                     <div class="post-info">
                         <p class="post-author">{{$group->name}}</p>
                         <p class="post-time">2 hours ago</p>

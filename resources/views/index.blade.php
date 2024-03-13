@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
-</head>
-<body>
+<x-base>
+
+    <x-slot:title>
+        home
+    </x-slot:title>
+
+    <x-slot:styles>
+
+    </x-slot:styles>
+
     <h1>index</h1>
+
     <p> <a href="{{ Route('logout') }}"> logout </a> </p>
     <p> <a href="{{ Route('profile') }}"> profile </a> </p>
     <p> <a href="{{ Route('groups') }}"> groups </a> </p>
     
-</body>
-</html>
+
+    <x-slot:scripts>
+        
+    </x-slot:scripts>
+
+</x-base>
+

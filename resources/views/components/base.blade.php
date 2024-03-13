@@ -14,10 +14,10 @@
         <div class="logo">NePlagiat</div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('groups') }}">Groups</a></li>
                 <li><a href="#">Events</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{ route('profile') }}">Profile</a></li>
             </ul>
         </nav>
     </header>
