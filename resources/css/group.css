@@ -26,6 +26,7 @@
 
 .group-image img {
     max-width: 200px;
+    max-height: 200px;
     border-radius: 10px;
 }
 
@@ -248,13 +249,16 @@ button:hover {
 
 .post-images {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 10px;
 }
 
 .post-images img {
-    width: 1000px; /* Задайте желаемый размер изображения */
-    height: auto;
+    max-width: 1000px; /* Задайте желаемый размер изображения */
+    max-height: 1000px;
     margin-right: 10px;
     margin-bottom: 10px;
     border-style: ridge;
@@ -264,12 +268,14 @@ button:hover {
 .additional-photos {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     margin-top: 10px;
 }
 
 .additional-photos img {
-    width: 1000px;
-    height: auto;
+    max-width: 1000px;
+    max-height: 1000px;
     object-fit: cover;
     margin-right: 10px;
     margin-bottom: 10px;
