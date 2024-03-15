@@ -46,11 +46,11 @@
                 
                 @if($lenImages > 0)
                     <div class="post-images">
-                        <img src="{{$post->images[0]->urn}}" alt="Post Image">
+                        <img id="post-img" src="{{$post->images[0]->urn}}" alt="Post Image">
                         <!-- Дополнительные фотографии -->
                         <div class="additional-photos" style="display: none;">
                         @for ($i = 1; $i < $lenImages; $i++)
-                            <img src="{{$post->images[$i]->urn}}" alt="Additional Image 1">
+                            <img id="post-img" src="{{$post->images[$i]->urn}}" alt="Additional Image 1">
                         @endfor
                         </div>
                         <!-- Кнопка для просмотра дополнительных фотографий -->
@@ -120,11 +120,16 @@
             <p>Количество участников: <span id="member-count">1000</span></p>
         </div>
     </div>
+
+    <div class="overlay" id="overlay">
+        <img id="overlay-img" alt="overlay img">
+    </div>
     
     <x-slot:scripts>
         @vite('resources/js/pop-up.js')
         @vite('resources/js/show-hide.js')
         @vite('resources/js/add-comments.js')
+        @vite('resources/js/img-overlay.js')
     </x-slot:scripts>
 
 </x-base>
