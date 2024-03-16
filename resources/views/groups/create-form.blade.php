@@ -4,7 +4,7 @@
     </x-slot:title>
 
     <x-slot:styles>
-        @vite('resources/css/create-group.css')
+        @vite('resources/css/groups/create-group.css')
     </x-slot:styles>
 
     <div class="container">
