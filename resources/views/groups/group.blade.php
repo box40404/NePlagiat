@@ -109,7 +109,6 @@
         
         @endforeach
 
-        <!-- More posts can go here -->
     </section>
 
     <div class="popup" id="popup">

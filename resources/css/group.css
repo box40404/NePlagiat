@@ -96,8 +96,8 @@ button:hover {
 }
 
 .post-header img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -314,7 +314,7 @@ button:hover {
 }
 
 .show-comments-btn {
-    padding: 5px 25px;
+    padding: 5px 15px;
     background-color: #4267B2;
     color: white;
     border: none;
