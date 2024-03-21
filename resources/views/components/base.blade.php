@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {{$title}} </title>
     @vite('resources/css/app.css')
-    {{$styles}}
+    {{$styles ?? null}}
 </head>
 
 <body>
@@ -28,7 +28,7 @@
         <p>&copy; 2024 NePlagiat. No rights reserved.</p>
     </footer>
 
-    {{$scripts}}
+    {{$scripts ?? null}}
 
 </body>
 </html>
