@@ -10,7 +10,7 @@
 
     <div class="container">
         <div class="profile-header">
-            <img src="storage\groups\4\posts\img\71yGudXO3y9avT7JdX3zoYt5m8TaCwhL9p897OTD.jpg" alt="User Avatar" class="avatar">
+            <livewire:upload-user-avatar :user="$user" />
             <h1 class="username">John Doe</h1>
             <p class="user-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet felis id lacus consectetur venenatis. Ut lacinia dui vitae est fermentum, vel luctus magna ullamcorper.</p>
         </div>
@@ -24,8 +24,4 @@
         </div>
     </div>
     
-
-    <x-slot:scripts>
-
-    </x-slot:scripts>
 </x-base>

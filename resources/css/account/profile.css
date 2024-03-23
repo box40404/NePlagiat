@@ -19,6 +19,23 @@
     margin-bottom: 20px;
 }
 
+.loading {
+    width: 50px;
+    position: relative;
+    top: 50px;
+}
+
+.change-avatar-input {
+    border-radius: 50%;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    overflow: clip;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+}
+
 .username {
     margin-bottom: 10px;
 }
