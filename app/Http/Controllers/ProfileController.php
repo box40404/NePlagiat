@@ -11,9 +11,8 @@ class ProfileController extends Controller
     public function show()
     {
         $user = Auth::user();
-        $username = $user->name;
 
-        return view("profile.index", ["username" => $username]);
+        return view("profile.index", ["user" => $user]);
     }
 
 }
