@@ -7,6 +7,11 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
+use App\Events\TestButtonPressed;
+use App\Listeners\TestListener;
+use App\Events\MessageSent;
+use App\Listeners\ShowMessage;
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -18,6 +23,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        TestButtonPressed::class => [
+            TestListener::class
+        ],
+        // MessageSent::class => [
+        //     ShowMessage::class
+        // ]
     ];
 
     /**

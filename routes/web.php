@@ -3,9 +3,13 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ChatsController;
+use App\Http\Controllers\FeedController;
 use App\Http\Controllers\Groups\CommentsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Groups\GroupsController;
+use App\Http\Controllers\TestController;
+use App\Livewire\PrivateChat;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +22,9 @@ use App\Http\Controllers\Groups\GroupsController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home')->middleware("auth");
+Route::get('/', [FeedController::class, 'index'])->name('home')->middleware("auth");
 
-
+Route::get('/test/{chat_id}', [TestController::class, 'show']);
 
 
 //    //Account//    //
@@ -61,6 +63,17 @@ Route::middleware('auth')->group(function() {
 Route::middleware('auth')->group(function() {
     Route::prefix('{group_id}/{post_id}')->group(function() {
         Route::post('/comments/create', [CommentsController::class, 'createComment'])->name('create_comment');
+    });
+});
+
+
+
+//  //Chats//  //
+
+Route::middleware('auth')->group(function() {
+    Route::prefix('chats')->group(function() {
+        Route::get('/{chatId}', PrivateChat::class)->name('chat');
+        Route::get('/', [ChatsController::class, 'showChatList'])->name('chat-list');
     });
 });
 

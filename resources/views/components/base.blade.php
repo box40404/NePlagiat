@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {{$title}} </title>
+    <title> {{$title ?? $_SERVER['PHP_SELF']}} </title>
     @vite('resources/css/app.css')
     {{$styles ?? null}}
 </head>
@@ -28,6 +28,7 @@
         <p>&copy; 2024 NePlagiat. No rights reserved.</p>
     </footer>
 
+    @vite('resources/js/app.js')
     {{$scripts ?? null}}
 
 </body>

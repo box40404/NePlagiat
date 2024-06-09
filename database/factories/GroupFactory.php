@@ -20,7 +20,9 @@ class GroupFactory extends Factory
             "name" => fake()->slug(2),
             "followers" => fake()->numberBetween(0, 999999),
             "description" => fake()->sentence(),
-            "tags" => fake()->word()
+            "tags" => fake()->word(),
+            'img' => 'default',
+            'user_id' => random_int(1, 255)
         ];
     }
 }

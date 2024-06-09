@@ -19,5 +19,23 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        // \App\Models\Chat::create([
+        //     'id' => 1
+        // ]);
+        // \App\Models\ChatMember::create([
+        //     'chat_id' => 1,
+        //     'user_id' => 1
+        // ]);
+        // \App\Models\ChatMember::create([
+        //     'chat_id' => 1,
+        //     'user_id' => 2
+        // ]);
+
+        \App\Models\ChatMessage::create([
+            'chat_id' => 1,
+            'user_id' => 0,
+            'content' => 'system message'
+        ]);
+
     }
 }
