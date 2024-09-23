@@ -26,16 +26,16 @@ class UploadUserAvatar extends Component
     {
         $userId = $this->user->id;
 
+        $files = Storage::files("public/users/$userId/avatar");
+        if( ! empty($files)){
+            Storage::delete($files[0]);
+        }
+
         $path = $this->image->store("public/users/$userId/avatar");
         if(!$path){
             return error("омг фотокарточка сломала все");
         }
         
-        $files = Storage::files("public/users/$userId/avatar");
-        if(count($files) > 1){
-            Storage::delete($files[0]);
-        }
-
         $this->user->avatar = Storage::url($path);
         $this->user->save();       
     }
